@@ -3,6 +3,8 @@
 
 using namespace std;
 
+#define MAX_FIGURA 4
+
 typedef enum
 {
 	NO_FIGURA = 0,
@@ -33,10 +35,12 @@ class Figura
 public:
 	Figura();
 
-	void moureCostat(int delta, ColorFigura tauler[N_FILES][N_COLUMNES]);
-	void baixar(ColorFigura tauler[N_FILES][N_COLUMNES]);
+	void inicialitzaFigura();
+	void moureCostat(int delta) { posX = posX + delta; }
+	void baixar() { posY++; }
 	void girar(DireccioGir direccio);
 	TipusFigura getForma() { return Forma; }
+	
 
 	void setForma(TipusFigura Figura) { Forma = Figura; }
 	void setX(int x) { posX = x; }
@@ -47,7 +51,7 @@ private:
 	int posX; //POS FIGURA
 	int posY;
 	Gir posicio;
-	ColorFigura figura[4][4];
+	ColorFigura figura[MAX_FIGURA][MAX_FIGURA];
 
 };
 

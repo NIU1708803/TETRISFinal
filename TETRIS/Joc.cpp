@@ -48,6 +48,8 @@ void Joc::inicialitza(const string& nomFitxer)
 		}
 
 		fitxer.close();
+
+		m_figura.inicialitzaFigura();
 }
 
 void Joc::escriuTauler(const string& nomFitxer)
