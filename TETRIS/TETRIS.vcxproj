@@ -134,6 +134,7 @@
   <ItemGroup>
     <ClCompile Include="Figura.cpp" />
     <ClCompile Include="Joc.cpp" />
+    <ClCompile Include="Tauler.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

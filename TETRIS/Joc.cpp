@@ -69,7 +69,7 @@ void Joc::escriuTauler(const string& nomFitxer)
 	fitxer.close();
 }
 
-bool giraFigura(DireccioGir direccio)
+bool Joc::giraFigura(DireccioGir direccio)
 {
 	/*
 	Com que diu penseu, no ho implementare'm encara. 
@@ -78,19 +78,62 @@ bool giraFigura(DireccioGir direccio)
 	Per dur a terme el gir s'usaria la funció girar de Figura.h que ja esta implementat.
 	Tenint en compte tot això, aquí no s'hauria de fer un codi molt llarg, ja que només crida a altres funcions per a que realitzin la feina.
 	*/
+
+	bool hagirat;
+
+	hagirat = m_tauler.girCorrecte(m_figura, direccio);
+
+	if (hagirat)
+	{
+		m_figura.girar(direccio);
+	}
+
+	return hagirat;
 }
 
-bool mouFigura(int dirX)
+bool Joc::mouFigura(int dirX)
 {
 	/*
 	Lo mateix que giraFigura però amb les funcions de moure o comprovar si pot moure, res més.
 	*/
+	bool moviment;
+
+	if (dirX > 0)
+	{
+		moviment = true;
+	}
+	else
+	{
+		moviment = false;
+	}
+
+	bool hamogut = m_tauler.movimentLateralCorrecte(m_figura, moviment);
+
+	if (hamogut)
+	{
+		m_figura.moureCostat(dirX);
+	}
+
+	return hamogut;
 }
 
-int baixaFigura()
+int Joc::baixaFigura()
 {
 	/*
 	Fa baixar la peça automaticament, sempre i quan ho pugui fer comprovant amb la funcio de Tauler.h, si pot la baixa amb la funcio de Figura.h
 	Si comprova que no pot baixar més, hauria de bloquejar la figura i després generar una nova.
 	*/
+	int filesCompletades;
+
+	if (m_tauler.movimentVerticalCorrecte(m_figura) == true)
+	{
+		m_figura.baixar();
+	}
+	else
+	{
+		m_tauler.colocaFigura(m_figura);
+		filesCompletades = m_tauler.esborraLinea();
+	}
+
+	return filesCompletades;
 }

@@ -46,6 +46,9 @@ public:
 	void setX(int x) { posX = x; }
 	void setY(int y) { posY = y; }
 	void setGir(Gir p) { posicio = p; }
+	int getPosX() { return posX; }
+	int getPosY() { return posY; }
+	ColorFigura getColorFigura(int j, int i) { return figura[j][i]; }
 private:
 	TipusFigura Forma;
 	int posX; //POS FIGURA

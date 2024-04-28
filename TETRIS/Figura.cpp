@@ -771,6 +771,8 @@ void Figura::inicialitzaFigura()
 			{
 				figura[i][1] = COLOR_BLAUCEL;
 			}
+			posX = 1;
+			posY = 1;
 			break;
 
 		case POSICIO_1:
@@ -778,6 +780,8 @@ void Figura::inicialitzaFigura()
 			{
 				figura[2][i] = COLOR_BLAUCEL;
 			}
+			posX = 1;
+			posY = 1;
 			break;
 
 		case POSICIO_2:
@@ -785,6 +789,8 @@ void Figura::inicialitzaFigura()
 			{
 				figura[i][2] = COLOR_BLAUCEL;
 			}
+			posX = 1;
+			posY = 1;
 			break;
 
 		case POSICIO_3:
@@ -792,6 +798,9 @@ void Figura::inicialitzaFigura()
 			{
 				figura[1][i] = COLOR_BLAUCEL;
 			}
+			posX = 1;
+			posY = 1;
+			break;
 		}
 		break;
 
