@@ -1,6 +1,15 @@
-#include "Joc.h"
-#include "Figura.h"
 #include "Tauler.h"
+
+Tauler::Tauler()
+{
+	for (int i = 0; i < MAX_FILA; i++)
+	{
+		for (int j = 0; j < MAX_COL; j++)
+		{
+			m_tauler[i][j] == NO_COLOR;
+		}
+	}
+}
 
 bool Tauler::movimentLateralCorrecte(Figura figura, bool moviment)
 {
@@ -121,14 +130,14 @@ int Tauler::esborraLinea()
 				lineasPerEsborrar++;
 				for (int k = 0; k < 8; k++) //Se eliminan todos los bloques de color de una fila entera (lineaPerEsborrar)
 				{
-					m_tauler[i][k] == NO_COLOR;
+					m_tauler[i][k] = NO_COLOR;
 				}
 
 				for (int k = i; k >= 1; k--) //Se copian los bloques de arriba a abajo, empezando por abajo, justo a partir de la línea eliminada
 				{
 					for (int j = 0; j < 8; j++)
 					{
-						m_tauler[k][j] == m_tauler[k - 1][j];
+						m_tauler[k][j] = m_tauler[k - 1][j];
 					}
 				}
 			}

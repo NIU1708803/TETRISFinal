@@ -1,21 +1,9 @@
-#include <iostream>
+#ifndef JOC_H
+#define JOC_H
+#include <string>
 #include "Tauler.h"
-
+#include "Figura.h"
 using namespace std;
-
-typedef enum
-{
-	GIR_HORARI = 0,
-	GIR_ANTI_HORARI
-} DireccioGir;
-
-typedef enum
-{
-	POSICIO_0 = 0,
-	POSICIO_1,
-	POSICIO_2,
-	POSICIO_3
-} Gir;
 
 class Joc
 {
@@ -27,7 +15,17 @@ public:
 	int baixaFigura();
 	void escriuTauler(const string& nomFitxer);
 
+	Figura getFigura() { return m_figura; }
+
 private:
 	Tauler m_tauler;
 	Figura m_figura;
 };
+
+
+istream& operator>>(istream& input, TipusFigura& figura);
+istream& operator>>(istream& input, Gir& posicio);
+istream& operator>>(istream& input, ColorFigura& color);
+
+
+#endif

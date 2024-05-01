@@ -1,15 +1,14 @@
-#include <iostream>
-#include <fstream>
 #include "Joc.h"
-#include "Figura.h"
+#include <fstream>
+#include <iostream>
 
 using namespace std;
 
 Joc::Joc()
 {
-	for (int i = 0; i < N_FILES; i++)
+	for (int i = 0; i < MAX_FILA; i++)
 	{
-		for (int j = 0; j < N_COLUMNES; j++)
+		for (int j = 0; j < MAX_COL; j++)
 		{
 			m_tauler.setTauler(i, j, COLOR_NEGRE);
 		}
@@ -28,28 +27,28 @@ void Joc::inicialitza(const string& nomFitxer)
 	ColorFigura color;
 
 	fitxer >> figura;
+	m_figura.setForma(figura);
 	fitxer >> x;
+	m_figura.setX(x);
 	fitxer >> y;
+	m_figura.setY(y);
 	fitxer >> posicio;
 
-	m_figura.setForma(figura);
-	m_figura.setX(x);
-	m_figura.setY(y);
 	m_figura.setGir(posicio);
 
-		for (int i = 0; i < N_FILES; i++)
+	for (int i = 0; i < MAX_FILA; i++)
+	{
+		for (int j = 0; j < MAX_COL; j++)
 		{
-			for (int j = 0; j < N_COLUMNES; j++)
-			{
-				fitxer >> color;
+			fitxer >> color;
 
-				m_tauler.setTauler(i, j, color);
-			}
+			m_tauler.setTauler(i, j, color);
 		}
+	}
 
-		fitxer.close();
+	fitxer.close();
 
-		m_figura.inicialitzaFigura();
+	m_figura.inicialitzaFigura();
 }
 
 void Joc::escriuTauler(const string& nomFitxer)
@@ -58,9 +57,9 @@ void Joc::escriuTauler(const string& nomFitxer)
 
 	fitxer.open(nomFitxer);
 
-	for (int i = 0; i < N_FILES; i++)
+	for (int i = 0; i < MAX_FILA; i++)
 	{
-		for (int j = 0; j < N_COLUMNES; j++)
+		for (int j = 0; j < MAX_COL; j++)
 		{
 			fitxer << m_tauler.getTauler(i, j);
 		}
@@ -72,7 +71,7 @@ void Joc::escriuTauler(const string& nomFitxer)
 bool Joc::giraFigura(DireccioGir direccio)
 {
 	/*
-	Com que diu penseu, no ho implementare'm encara. 
+	Com que diu penseu, no ho implementare'm encara.
 	Aqui retornaria un true o false en cas ho hagi pogut girar o no.
 	Per comprovar si el gir es pot dur a terme s'usaria la funció girCorrecte de Tauler.h
 	Per dur a terme el gir s'usaria la funció girar de Figura.h que ja esta implementat.
@@ -123,7 +122,7 @@ int Joc::baixaFigura()
 	Fa baixar la peça automaticament, sempre i quan ho pugui fer comprovant amb la funcio de Tauler.h, si pot la baixa amb la funcio de Figura.h
 	Si comprova que no pot baixar més, hauria de bloquejar la figura i després generar una nova.
 	*/
-	int filesCompletades;
+	int filesCompletades = 0;
 
 	if (m_tauler.movimentVerticalCorrecte(m_figura) == true)
 	{
@@ -136,4 +135,29 @@ int Joc::baixaFigura()
 	}
 
 	return filesCompletades;
+}
+
+istream& operator>>(istream& input, TipusFigura& figura)
+{
+	int valor;
+	input >> valor;
+	figura = TipusFigura(valor);
+	return input;
+
+}
+
+istream& operator>>(istream& input, Gir& posicio)
+{
+	int valor;
+	input >> valor;
+	posicio = Gir(valor);
+	return input;
+}
+
+istream& operator>>(istream& input, ColorFigura& color)
+{
+	int valor;
+	input >> valor;
+	color = ColorFigura(valor);
+	return input;
 }
