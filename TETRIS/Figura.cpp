@@ -2,6 +2,189 @@
 
 using namespace std;
 
+// Figura J
+const ColorFigura figura_J_pos0[4][4] = {
+	{COLOR_BLAUFOSC, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_BLAUFOSC, COLOR_BLAUFOSC, COLOR_BLAUFOSC, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE}
+};
+
+const ColorFigura figura_J_pos1[4][4] = {
+	{COLOR_NEGRE, COLOR_BLAUFOSC, COLOR_BLAUFOSC, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_BLAUFOSC, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_BLAUFOSC, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE}
+};
+
+const ColorFigura figura_J_pos2[4][4] = {
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_BLAUFOSC, COLOR_BLAUFOSC, COLOR_BLAUFOSC, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_BLAUFOSC, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE}
+};
+
+const ColorFigura figura_J_pos3[4][4] = {
+	{COLOR_NEGRE, COLOR_BLAUFOSC, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_BLAUFOSC, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_BLAUFOSC, COLOR_BLAUFOSC, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE}
+};
+
+// Figura L
+const ColorFigura figura_L_pos0[4][4] = {
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_TARONJA, COLOR_NEGRE},
+	{COLOR_TARONJA, COLOR_TARONJA, COLOR_TARONJA, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE}
+};
+
+const ColorFigura figura_L_pos1[4][4] = {
+	{COLOR_NEGRE, COLOR_TARONJA, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_TARONJA, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_TARONJA, COLOR_TARONJA, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE}
+};
+
+const ColorFigura figura_L_pos2[4][4] = {
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_TARONJA, COLOR_TARONJA, COLOR_TARONJA, COLOR_NEGRE},
+	{COLOR_TARONJA, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE}
+};
+
+const ColorFigura figura_L_pos3[4][4] = {
+	{COLOR_TARONJA, COLOR_TARONJA, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_TARONJA, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_TARONJA, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE}
+};
+
+// Figura S
+const ColorFigura figura_S_pos0[4][4] = {
+	{COLOR_NEGRE, COLOR_VERD, COLOR_VERD, COLOR_NEGRE},
+	{COLOR_VERD, COLOR_VERD, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE}
+};
+
+const ColorFigura figura_S_pos1[4][4] = {
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_VERD, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_VERD, COLOR_VERD, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_VERD, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE}
+};
+
+const ColorFigura figura_S_pos2[4][4] = {
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_VERD, COLOR_VERD, COLOR_NEGRE},
+	{COLOR_VERD, COLOR_VERD, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE}
+};
+
+const ColorFigura figura_S_pos3[4][4] = {
+	{COLOR_VERD, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_VERD, COLOR_VERD, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_VERD, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE}
+};
+
+// Figura Z
+const ColorFigura figura_Z_pos0[4][4] = {
+	{COLOR_VERMELL, COLOR_VERMELL, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_VERMELL, COLOR_VERMELL, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE}
+};
+
+const ColorFigura figura_Z_pos1[4][4] = {
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_VERMELL, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_VERMELL, COLOR_VERMELL, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_VERMELL, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE}
+};
+
+const ColorFigura figura_Z_pos2[4][4] = {
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_VERMELL, COLOR_VERMELL, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_VERMELL, COLOR_VERMELL, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE}
+};
+
+const ColorFigura figura_Z_pos3[4][4] = {
+	{COLOR_NEGRE, COLOR_VERMELL, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_VERMELL, COLOR_VERMELL, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_VERMELL, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE}
+};
+
+// Figura T
+const ColorFigura figura_T_pos0[4][4] = {
+	{COLOR_NEGRE, COLOR_MAGENTA, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_MAGENTA, COLOR_MAGENTA, COLOR_MAGENTA, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE}
+};
+
+const ColorFigura figura_T_pos1[4][4] = {
+	{COLOR_NEGRE, COLOR_MAGENTA, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_MAGENTA, COLOR_MAGENTA, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_MAGENTA, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE}
+};
+
+const ColorFigura figura_T_pos2[4][4] = {
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_MAGENTA, COLOR_MAGENTA, COLOR_MAGENTA, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_MAGENTA, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE}
+};
+
+const ColorFigura figura_T_pos3[4][4] = {
+	{COLOR_NEGRE, COLOR_MAGENTA, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_MAGENTA, COLOR_MAGENTA, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_MAGENTA, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE}
+};
+
+// Figura I
+const ColorFigura figura_I_pos0[4][4] = {
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_GROC, COLOR_GROC, COLOR_GROC, COLOR_GROC},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE}
+};
+
+const ColorFigura figura_I_pos1[4][4] = {
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_GROC, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_GROC, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_GROC, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_GROC, COLOR_NEGRE}
+};
+
+const ColorFigura figura_I_pos2[4][4] = {
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_GROC, COLOR_GROC, COLOR_GROC, COLOR_GROC},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE}
+};
+
+const ColorFigura figura_I_pos3[4][4] = {
+	{COLOR_NEGRE, COLOR_GROC, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_GROC, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_GROC, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_GROC, COLOR_NEGRE, COLOR_NEGRE}
+};
+
+// Figura O
+const ColorFigura figura_O_pos0[4][4] = {
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE},
+	{COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE, COLOR_NEGRE}
+};
+
+
 Figura::Figura()
 {
 	Forma = NO_FIGURA;
@@ -12,11 +195,705 @@ Figura::Figura()
 	{
 		for (int j = 0; j < MAX_ALCADA; j++)
 		{
-			figura[i][j] = NO_COLOR;
+			figura[i][j] = COLOR_NEGRE;
 		}
 	}
 }
 
+void Figura::girar(DireccioGir direccio)
+{
+	switch (Forma)
+	{
+	case FIGURA_I:
+		switch (posicio)
+		{
+		case POSICIO_0:
+			if (direccio == GIR_HORARI)
+			{
+				for (int i = 0; i < 4; i++)
+				{
+					for (int j = 0; j < 4; j++)
+					{
+						figura[i][j] = figura_I_pos1[i][j];
+					}
+				}
+			}
+			else
+			{
+				for (int i = 0; i < 4; i++)
+				{
+					for (int j = 0; j < 4; j++)
+					{
+						figura[i][j] = figura_I_pos3[i][j];
+					}
+				}
+			}
+			break;
+
+		case POSICIO_1:
+			if (direccio == GIR_HORARI)
+			{
+				for (int i = 0; i < 4; i++)
+				{
+					for (int j = 0; j < 4; j++)
+					{
+						figura[i][j] = figura_I_pos2[i][j];
+					}
+				}
+			}
+			else
+			{
+				for (int i = 0; i < 4; i++)
+				{
+					for (int j = 0; j < 4; j++)
+					{
+						figura[i][j] = figura_I_pos0[i][j];
+					}
+				}
+			}
+			break;
+
+		case POSICIO_2:
+			if (direccio == GIR_HORARI)
+			{
+				for (int i = 0; i < 4; i++)
+				{
+					for (int j = 0; j < 4; j++)
+					{
+						figura[i][j] = figura_I_pos3[i][j];
+					}
+				}
+			}
+			else
+			{
+				for (int i = 0; i < 4; i++)
+				{
+					for (int j = 0; j < 4; j++)
+					{
+						figura[i][j] = figura_I_pos1[i][j];
+					}
+				}
+			}
+			break;
+
+		case POSICIO_3:
+			if (direccio == GIR_HORARI)
+			{
+				for (int i = 0; i < 4; i++)
+				{
+					for (int j = 0; j < 4; j++)
+					{
+						figura[i][j] = figura_I_pos0[i][j];
+					}
+				}
+			}
+			else
+			{
+				for (int i = 0; i < 4; i++)
+				{
+					for (int j = 0; j < 4; j++)
+					{
+						figura[i][j] = figura_I_pos2[i][j];
+					}
+				}
+			}
+			break;
+		}
+		break;
+
+	case FIGURA_J:
+		switch (posicio)
+		{
+		case POSICIO_0:
+			if (direccio == GIR_HORARI)
+			{
+				for (int i = 0; i < 4; i++)
+				{
+					for (int j = 0; j < 4; j++)
+					{
+						figura[i][j] = figura_J_pos1[i][j];
+					}
+				}
+			}
+			else
+			{
+				for (int i = 0; i < 4; i++)
+				{
+					for (int j = 0; j < 4; j++)
+					{
+						figura[i][j] = figura_J_pos3[i][j];
+					}
+				}
+			}
+			break;
+
+		case POSICIO_1:
+			if (direccio == GIR_HORARI)
+			{
+				for (int i = 0; i < 4; i++)
+				{
+					for (int j = 0; j < 4; j++)
+					{
+						figura[i][j] = figura_J_pos2[i][j];
+					}
+				}
+			}
+			else
+			{
+				for (int i = 0; i < 4; i++)
+				{
+					for (int j = 0; j < 4; j++)
+					{
+						figura[i][j] = figura_J_pos0[i][j];
+					}
+				}
+			}
+			break;
+
+		case POSICIO_2:
+			if (direccio == GIR_HORARI)
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_J_pos3[i][j];
+						}
+					}
+				}
+			}
+			else
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_J_pos1[i][j];
+						}
+					}
+				}
+			}
+			break;
+
+		case POSICIO_3:
+			if (direccio == GIR_HORARI)
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_J_pos0[i][j];
+						}
+					}
+				}
+			}
+			else
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_J_pos2[i][j];
+						}
+					}
+				}
+			}
+			break;
+		}
+		break;
+
+	case FIGURA_L:
+		switch (posicio)
+		{
+		case POSICIO_0:
+			if (direccio == GIR_HORARI)
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_L_pos1[i][j];
+						}
+					}
+				}
+			}
+			else
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_L_pos3[i][j];
+						}
+					}
+				}
+			}
+			break;
+
+		case POSICIO_1:
+			if (direccio == GIR_HORARI)
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_L_pos2[i][j];
+						}
+					}
+				}
+			}
+			else
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_L_pos0[i][j];
+						}
+					}
+				}
+			}
+			break;
+
+		case POSICIO_2:
+			if (direccio == GIR_HORARI)
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_L_pos3[i][j];
+						}
+					}
+				}
+			}
+			else
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_L_pos1[i][j];
+						}
+					}
+				}
+			}
+			break;
+
+		case POSICIO_3:
+			if (direccio == GIR_HORARI)
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_L_pos0[i][j];
+						}
+					}
+				}
+			}
+			else
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_L_pos2[i][j];
+						}
+					}
+				}
+			}
+			break;
+		}
+		break;
+
+	case FIGURA_S:
+		switch (posicio)
+		{
+		case POSICIO_0:
+			if (direccio == GIR_HORARI)
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_S_pos1[i][j];
+						}
+					}
+				}
+			}
+			else
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_S_pos3[i][j];
+						}
+					}
+				}
+			}
+			break;
+
+		case POSICIO_1:
+			if (direccio == GIR_HORARI)
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_S_pos2[i][j];
+						}
+					}
+				}
+			}
+			else
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_S_pos0[i][j];
+						}
+					}
+				}
+			}
+			break;
+
+		case POSICIO_2:
+			if (direccio == GIR_HORARI)
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_S_pos3[i][j];
+						}
+					}
+				}
+			}
+			else
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_S_pos1[i][j];
+						}
+					}
+				}
+			}
+			break;
+
+		case POSICIO_3:
+			if (direccio == GIR_HORARI)
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_S_pos0[i][j];
+						}
+					}
+				}
+			}
+			else
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_S_pos2[i][j];
+						}
+					}
+				}
+			}
+			break;
+		}
+		break;
+
+	case FIGURA_Z:
+		switch (posicio)
+		{
+		case POSICIO_0:
+			if (direccio == GIR_HORARI)
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_Z_pos1[i][j];
+						}
+					}
+				}
+			}
+			else
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_Z_pos3[i][j];
+						}
+					}
+				}
+			}
+			break;
+
+		case POSICIO_1:
+			if (direccio == GIR_HORARI)
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_Z_pos2[i][j];
+						}
+					}
+				}
+			}
+			else
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_Z_pos0[i][j];
+						}
+					}
+				}
+			}
+			break;
+
+		case POSICIO_2:
+			if (direccio == GIR_HORARI)
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_Z_pos3[i][j];
+						}
+					}
+				}
+			}
+			else
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_Z_pos1[i][j];
+						}
+					}
+				}
+			}
+			break;
+
+		case POSICIO_3:
+			if (direccio == GIR_HORARI)
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_Z_pos0[i][j];
+						}
+					}
+				}
+			}
+			else
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_Z_pos2[i][j];
+						}
+					}
+				}
+			}
+			break;
+		}
+		break;
+
+	case FIGURA_T:
+		switch (posicio)
+		{
+		case POSICIO_0:
+			if (direccio == GIR_HORARI)
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_T_pos1[i][j];
+						}
+					}
+				}
+			}
+			else
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_T_pos3[i][j];
+						}
+					}
+				}
+			}
+			break;
+
+		case POSICIO_1:
+			if (direccio == GIR_HORARI)
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_T_pos2[i][j];
+						}
+					}
+				}
+			}
+			else
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_T_pos0[i][j];
+						}
+					}
+				}
+			}
+			break;
+
+		case POSICIO_2:
+			if (direccio == GIR_HORARI)
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_T_pos3[i][j];
+						}
+					}
+				}
+			}
+			else
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_T_pos1[i][j];
+						}
+					}
+				}
+			}
+			break;
+
+		case POSICIO_3:
+			if (direccio == GIR_HORARI)
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_T_pos0[i][j];
+						}
+					}
+				}
+			}
+			else
+			{
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						for (int j = 0; j < 4; j++)
+						{
+							figura[i][j] = figura_T_pos2[i][j];
+						}
+					}
+				}
+			}
+			break;
+		}
+		break;
+	}
+
+	switch (posicio)
+	{
+	case POSICIO_0:
+		if (direccio == GIR_HORARI)
+			posicio = POSICIO_1;
+		else
+			posicio = POSICIO_3;
+		break;
+
+	case POSICIO_1:
+		if (direccio == GIR_HORARI)
+			posicio = POSICIO_2;
+		else
+			posicio = POSICIO_0;
+		break;
+
+	case POSICIO_2:
+		if (direccio == GIR_HORARI)
+			posicio = POSICIO_3;
+		else
+			posicio = POSICIO_1;
+		break;
+
+	case POSICIO_3:
+		if (direccio == GIR_HORARI)
+			posicio = POSICIO_0;
+		else
+			posicio = POSICIO_2;
+		break;
+	}
+}
+
+
+
+/*
 void Figura::girar(DireccioGir direccio)
 {
 	if (Forma == FIGURA_I)
@@ -174,7 +1051,8 @@ void Figura::girar(DireccioGir direccio)
 				}
 			}
 		}
-}
+}*/
+/*
 void Figura::inicialitzaFigura()
 {
 	//[X][Y]
@@ -395,5 +1273,328 @@ void Figura::inicialitzaFigura()
 		break;
 
 	}
+}*/
+
+void Figura::setForma(TipusFigura Figura, Gir posicio)
+{
+	Forma = Figura;
+
+	switch (Forma)
+	{
+	case FIGURA_I:
+		switch (posicio)
+		{
+		case POSICIO_0:
+			for (int i = 0; i < 4; i++)
+			{
+				for (int j = 0; j < 4; j++)
+				{
+					figura[i][j] = figura_I_pos0[i][j];
+				}
+			}
+			break;
+
+		case POSICIO_1:
+			for (int i = 0; i < 4; i++)
+			{
+				for (int j = 0; j < 4; j++)
+				{
+					figura[i][j] = figura_I_pos1[i][j];
+				}
+			}
+			break;
+
+		case POSICIO_2:
+			for (int i = 0; i < 4; i++)
+			{
+				for (int j = 0; j < 4; j++)
+				{
+					figura[i][j] = figura_I_pos2[i][j];
+				}
+			}
+			break;
+
+		case POSICIO_3:
+			for (int i = 0; i < 4; i++)
+			{
+				for (int j = 0; j < 4; j++)
+				{
+					figura[i][j] = figura_I_pos3[i][j];
+				}
+			}
+			break;
+		}
+		break;
+
+	case FIGURA_J:
+		switch (posicio)
+		{
+		case POSICIO_0:
+			for (int i = 0; i < 4; i++)
+			{
+				for (int j = 0; j < 4; j++)
+				{
+					figura[i][j] = figura_J_pos0[i][j];
+				}
+			}
+			break;
+
+		case POSICIO_1:
+			for (int i = 0; i < 4; i++)
+			{
+				for (int j = 0; j < 4; j++)
+				{
+					figura[i][j] = figura_J_pos1[i][j];
+				}
+			}
+			break;
+
+		case POSICIO_2:
+			for (int i = 0; i < 4; i++)
+			{
+				for (int j = 0; j < 4; j++)
+				{
+					figura[i][j] = figura_J_pos2[i][j];
+				}
+			}
+			break;
+
+		case POSICIO_3:
+			for (int i = 0; i < 4; i++)
+			{
+				for (int j = 0; j < 4; j++)
+				{
+					figura[i][j] = figura_J_pos3[i][j];
+				}
+			}
+			break;
+		}
+		break;
+
+	case FIGURA_L:
+		switch (posicio)
+		{
+		case POSICIO_0:
+			for (int i = 0; i < 4; i++)
+			{
+				for (int j = 0; j < 4; j++)
+				{
+					figura[i][j] = figura_L_pos0[i][j];
+				}
+			}
+			break;
+
+		case POSICIO_1:
+			for (int i = 0; i < 4; i++)
+			{
+				for (int j = 0; j < 4; j++)
+				{
+					figura[i][j] = figura_L_pos1[i][j];
+				}
+			}
+			break;
+
+		case POSICIO_2:
+			for (int i = 0; i < 4; i++)
+			{
+				for (int j = 0; j < 4; j++)
+				{
+					figura[i][j] = figura_L_pos2[i][j];
+				}
+			}
+			break;
+
+		case POSICIO_3:
+			for (int i = 0; i < 4; i++)
+			{
+				for (int j = 0; j < 4; j++)
+				{
+					figura[i][j] = figura_L_pos3[i][j];
+				}
+			}
+			break;
+		}
+		break;
+
+	case FIGURA_S:
+		switch (posicio)
+		{
+		case POSICIO_0:
+			for (int i = 0; i < 4; i++)
+			{
+				for (int j = 0; j < 4; j++)
+				{
+					figura[i][j] = figura_S_pos0[i][j];
+				}
+			}
+			break;
+
+		case POSICIO_1:
+			for (int i = 0; i < 4; i++)
+			{
+				for (int j = 0; j < 4; j++)
+				{
+					figura[i][j] = figura_S_pos1[i][j];
+				}
+			}
+			break;
+
+		case POSICIO_2:
+			for (int i = 0; i < 4; i++)
+			{
+				for (int j = 0; j < 4; j++)
+				{
+					figura[i][j] = figura_S_pos2[i][j];
+				}
+			}
+			break;
+
+		case POSICIO_3:
+			for (int i = 0; i < 4; i++)
+			{
+				for (int j = 0; j < 4; j++)
+				{
+					figura[i][j] = figura_S_pos3[i][j];
+				}
+			}
+			break;
+		}
+		break;
+
+	case FIGURA_Z:
+		switch (posicio)
+		{
+		case POSICIO_0:
+			for (int i = 0; i < 4; i++)
+			{
+				for (int j = 0; j < 4; j++)
+				{
+					figura[i][j] = figura_Z_pos0[i][j];
+				}
+			}
+			break;
+
+		case POSICIO_1:
+			for (int i = 0; i < 4; i++)
+			{
+				for (int j = 0; j < 4; j++)
+				{
+					figura[i][j] = figura_Z_pos1[i][j];
+				}
+			}
+			break;
+
+		case POSICIO_2:
+			for (int i = 0; i < 4; i++)
+			{
+				for (int j = 0; j < 4; j++)
+				{
+					figura[i][j] = figura_Z_pos2[i][j];
+				}
+			}
+			break;
+
+		case POSICIO_3:
+			for (int i = 0; i < 4; i++)
+			{
+				for (int j = 0; j < 4; j++)
+				{
+					figura[i][j] = figura_Z_pos3[i][j];
+				}
+			}
+			break;
+		}
+		break;
+
+	case FIGURA_T:
+		switch (posicio)
+		{
+		case POSICIO_0:
+			for (int i = 0; i < 4; i++)
+			{
+				for (int j = 0; j < 4; j++)
+				{
+					figura[i][j] = figura_T_pos0[i][j];
+				}
+			}
+			break;
+
+		case POSICIO_1:
+			for (int i = 0; i < 4; i++)
+			{
+				for (int j = 0; j < 4; j++)
+				{
+					figura[i][j] = figura_T_pos1[i][j];
+				}
+			}
+			break;
+
+		case POSICIO_2:
+			for (int i = 0; i < 4; i++)
+			{
+				for (int j = 0; j < 4; j++)
+				{
+					figura[i][j] = figura_T_pos2[i][j];
+				}
+			}
+			break;
+
+		case POSICIO_3:
+			for (int i = 0; i < 4; i++)
+			{
+				for (int j = 0; j < 4; j++)
+				{
+					figura[i][j] = figura_T_pos3[i][j];
+				}
+			}
+			break;
+		}
+		break;
+	}
+
+	switch (posicio)
+	{
+	case POSICIO_0:
+		posicio = POSICIO_0;
+		break;
+
+	case POSICIO_1:
+		posicio = POSICIO_1;
+		break;
+
+	case POSICIO_2:
+		posicio = POSICIO_2;
+		break;
+
+	case POSICIO_3:
+		posicio = POSICIO_3;
+		break;
+	}
 }
 
+void Figura::inicialitzaFigura(TipusFigura tipus, int fila, int columna, Gir posicio)
+{
+	//columna = posX
+	//fila = posY
+
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			figura[i][j] = COLOR_NEGRE;
+		}
+	}
+
+	posX = columna;
+	posY = fila;
+
+	setForma(tipus, posicio);
+}
+
+void Figura::moureCostat(bool delta)
+{
+	if (delta)
+		posX++;
+	else
+		posX--;
+}

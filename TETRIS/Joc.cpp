@@ -18,41 +18,122 @@ Joc::Joc()
 void Joc::inicialitza(const string& nomFitxer)
 {
 	ifstream fitxer;
-
 	fitxer.open(nomFitxer);
-
-	TipusFigura figura;
-	int x, y;
-	Gir posicio;
-	ColorFigura color;
-
-	fitxer >> figura;
-	m_figura.setForma(figura);
-	fitxer >> x;
-	m_figura.setX(x);
-	fitxer >> y;
-	m_figura.setY(y);
-	fitxer >> posicio;
-
-	m_figura.setGir(posicio);
-
-	for (int i = 0; i < MAX_FILA; i++)
+	if (fitxer.is_open())
 	{
-		for (int j = 0; j < MAX_COL; j++)
-		{
-			fitxer >> color;
+		int tipus, fila, columna, gir;
+		TipusFigura figura;
+		Gir posicio;
 
-			m_tauler.setTauler(i, j, color);
+		fitxer >> tipus;
+		fitxer >> fila; //fila = posY
+		fitxer >> columna; // columna = posX
+		fitxer >> gir;
+
+		switch (tipus)
+		{
+		case 1:
+			figura = FIGURA_O;
+			break;
+
+		case 2:
+			figura = FIGURA_I;
+			break;
+
+		case 3:
+			figura = FIGURA_T;
+			break;
+
+		case 4:
+			figura = FIGURA_L;
+			break;
+
+		case 5:
+			figura = FIGURA_J;
+			break;
+
+		case 6:
+			figura = FIGURA_Z;
+			break;
+
+		case 7:
+			figura = FIGURA_S;
+			break;
 		}
+
+		switch (gir)
+		{
+		case 0:
+			posicio = POSICIO_0;
+			break;
+
+		case 1:
+			posicio = POSICIO_1;
+			break;
+
+		case 2:
+			posicio = POSICIO_2;
+			break;
+
+		case 3:
+			posicio = POSICIO_3;
+			break;
+		}
+
+		int colorEnInt;
+		ColorFigura colorActual;
+		for (int i = 0; i < 8; i++)
+		{
+			for (int j = 0; j < 8; j++)
+			{
+				fitxer >> colorEnInt;
+
+				switch (colorEnInt)
+				{
+				case 0:
+					colorActual = COLOR_NEGRE;
+					break;
+				case 1:
+					colorActual = COLOR_GROC;
+					break;
+				case 2:
+					colorActual = COLOR_BLAUCEL;
+					break;
+				case 3:
+					colorActual = COLOR_MAGENTA;
+					break;
+				case 4:
+					colorActual = COLOR_TARONJA;
+					break;
+				case 5:
+					colorActual = COLOR_BLAUFOSC;
+					break;
+				case 6:
+					colorActual = COLOR_VERMELL;
+					break;
+				case 7:
+					colorActual = COLOR_VERD;
+					break;
+				default:
+					colorActual = NO_COLOR;
+					break;
+				}
+
+				m_tauler.setTauler(i, j, colorActual);
+			}
+		}
+		m_figura.inicialitzaFigura(figura, fila, columna, posicio);
+
 	}
 
 	fitxer.close();
 
-	m_figura.inicialitzaFigura();
+
 }
 
 void Joc::escriuTauler(const string& nomFitxer)
 {
+	m_tauler.colocaFigura(m_figura);
 	ofstream fitxer;
 
 	fitxer.open(nomFitxer);
@@ -63,6 +144,7 @@ void Joc::escriuTauler(const string& nomFitxer)
 		{
 			fitxer << m_tauler.getTauler(i, j);
 		}
+		fitxer << endl;
 	}
 
 	fitxer.close();
@@ -95,7 +177,7 @@ bool Joc::mouFigura(int dirX)
 	/*
 	Lo mateix que giraFigura però amb les funcions de moure o comprovar si pot moure, res més.
 	*/
-	bool moviment;
+	bool moviment = true;;
 
 	if (dirX > 0)
 	{
@@ -106,12 +188,15 @@ bool Joc::mouFigura(int dirX)
 		moviment = false;
 	}
 
-	bool hamogut = m_tauler.movimentLateralCorrecte(m_figura, moviment);
+	bool hamogut;
+	hamogut = m_tauler.movimentLateralCorrecte(m_figura, moviment);
 
 	if (hamogut)
 	{
-		m_figura.moureCostat(dirX);
+		m_figura.moureCostat(moviment);
 	}
+
+	m_tauler.colocaFigura(m_figura);
 
 	return hamogut;
 }
@@ -127,6 +212,7 @@ int Joc::baixaFigura()
 	if (m_tauler.movimentVerticalCorrecte(m_figura) == true)
 	{
 		m_figura.baixar();
+		m_tauler.colocaFigura(m_figura);
 	}
 	else
 	{
@@ -136,7 +222,7 @@ int Joc::baixaFigura()
 
 	return filesCompletades;
 }
-
+/*
 istream& operator>>(istream& input, TipusFigura& figura)
 {
 	int valor;
@@ -161,3 +247,4 @@ istream& operator>>(istream& input, ColorFigura& color)
 	color = ColorFigura(valor);
 	return input;
 }
+*/

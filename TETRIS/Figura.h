@@ -50,14 +50,14 @@ class Figura
 public:
     Figura();
 
-    void inicialitzaFigura();
-    void moureCostat(int delta) { posX = posX + delta; }
-    void baixar() { posY++; }
+    void inicialitzaFigura(TipusFigura tipus, int fila, int columna, Gir posicio);
+    void moureCostat(bool delta);
+    void baixar() { posX++; }
     void girar(DireccioGir direccio);
     TipusFigura getForma() { return Forma; }
 
 
-    void setForma(TipusFigura Figura) { Forma = Figura; }
+    void setForma(TipusFigura Figura, Gir posicio);//
     void setX(int x) { posX = x; }
     void setY(int y) { posY = y; }
     void setGir(Gir p) { posicio = p; }

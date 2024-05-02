@@ -22,10 +22,10 @@ private:
 	Figura m_figura;
 };
 
-
+/*
 istream& operator>>(istream& input, TipusFigura& figura);
 istream& operator>>(istream& input, Gir& posicio);
 istream& operator>>(istream& input, ColorFigura& color);
 
-
+*/
 #endif

@@ -17,7 +17,10 @@ public:
 	int esborraLinea();
 	ColorFigura getColorFigura(const int x, const int y) { return m_tauler[x][y]; }
 
-	void setTauler(int i, int j, ColorFigura color) { m_tauler[i][j] = color; }
+	void setTauler(int fila, int columna, ColorFigura color)
+	{
+		m_tauler[fila][columna] = color;
+	}
 	ColorFigura getTauler(int i, int j) { return m_tauler[i][j]; }
 private:
 	ColorFigura m_tauler[MAX_FILA][MAX_COL];
