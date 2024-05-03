@@ -11,130 +11,123 @@ Tauler::Tauler()
 	}
 }
 
-/*bool Tauler::movimentLateralCorrecte(Figura figura, bool moviment)
+bool Tauler::movimentLateralCorrecte(Figura const figura, bool const moviment) const
 {
-	int posXBase = figura.getPosX() - 1; //situa la posición base arriba a la izquierda del todo para tenerlo como referencia en el tablero
-	int posYBase = figura.getPosY() - 2;
 	bool esPotMoure = true;
 
-	if (moviment) //moviment = 0 --> esquerra, moviment = 1 --> dreta: se reajusta la posición de la figura a donde se desea que se mueva
-		posXBase++;
-	else
-		posXBase--;
+	Figura figuraTemp = figura;
 
-	for (int i = 0; i < 4 && esPotMoure; i++)
+	figuraTemp.moureCostat(moviment);
+
+	int posXBase = figuraTemp.getPosX();
+	int posYBase = figuraTemp.getPosY();
+
+	int i = 0;
+	int j = 0;
+
+	while (i < figuraTemp.getAlcada() && esPotMoure)
 	{
-		for (int j = 0; j < 4 && esPotMoure; j++)
+		while (j < figuraTemp.getAlcada() && esPotMoure)
 		{
-			if (((posXBase + j >= 0) && (posXBase + j <= 3)) && ((posYBase + i >= 0) && (posYBase + i <= 3))) //hay que comprobar si la posición a valorar se encuentra en la tabla
-				if ((m_tauler[posXBase + i][posYBase + j] != COLOR_NEGRE) && (figura.getColorFigura(j, i) != COLOR_NEGRE))
-					esPotMoure = false; //caso 1: celda de la figura dentro de la tabla y celda de la tabla ocupada --> NO SE PUEDE MOVER
-
-			if ((((posXBase + j < 0) || (posXBase + j > 3)) || ((posYBase + i < 0) || (posYBase + i > 3))) && (figura.getColorFigura(j, i) != COLOR_NEGRE)) //se comprueba si la celda a analizar está fuera de la tabla y contiene parte de la figura a mover
-				esPotMoure = false; //caso 2: celda de la figura fuera de la tabla y celda de la figura ocupada al mismo tiempo, fuera de límite --> NO SE PUEDE MOVER
-		} //ATENCIÓN: PUEDE QUE figura.getColorFigura(j, i) tenga que cambiar los parámetros al revés según las consideraciones sobre las coordenadas
-	}
-
-	if (esPotMoure)
-		return true;
-	else
-		return false;
-}*/
-
-bool Tauler::movimentLateralCorrecte(Figura figura, bool moviment)
-{
-	int newX = figura.getPosX();
-
-	if (moviment)
-		newX++; // Dreta
-	else
-		newX--; // Esquerra
-
-	if (newX <= 0 || newX >= MAX_COL)
-		return false;
-
-	for (int i = 0; i < 4; i++)
-	{
-		for (int j = 0; j < 4; j++)
-		{
-			if (figura.getColorFigura(i, j) != COLOR_NEGRE)
+			if (figuraTemp.getColorFigura(i, j) != COLOR_NEGRE)
 			{
-				int x = newX + i; // Nova posicio x
-				if (x <= 0 || x >= MAX_COL || figura.getPosY() + j < 0 || figura.getPosY() + j >= MAX_ALCADA)
-					return false; // Fuera de los límites del tablero
-				if (m_tauler[x][figura.getPosY() + j] != COLOR_NEGRE)
-					return false; // Colisión con una figura en el tablero
+				if ((posYBase + j < 0 || posYBase + j >= MAX_FILA) || (posXBase + i < 0 || posXBase + i >= MAX_COL))
+				{
+					esPotMoure = false;
+				}
+				if ((posYBase + j >= 0 && posYBase + j < MAX_FILA) && (posXBase + i >= 0 && posXBase + i < MAX_COL))
+					if (m_tauler[posXBase + i][posYBase + j] != COLOR_NEGRE)
+						esPotMoure = false;
 			}
+			j++;
 		}
+		i++;
+		j = 0;
 	}
-	return true;
+
+	return esPotMoure;
 }
 
-bool Tauler::movimentVerticalCorrecte(Figura figura)
+bool Tauler::movimentVerticalCorrecte(Figura const figura) const
 {
-	int posXBase = figura.getPosX() - 1;
-	int posYBase = figura.getPosY() - 2;
 	bool esPotMoure = true;
 
-	posYBase++; //prefiero hacerlo así en vez de eliminar el "-1" de la declaración de posYBase porque lo considero más legible, ya que por cada posY++, es una posición "más baja" en la tabla 8x8 del tablero
+	Figura figuraTemp = figura;
 
-	for (int i = 0; i < 4 && esPotMoure; i++)
+	figuraTemp.baixar();
+
+	int posXTemp = figuraTemp.getPosX();
+	int posYTemp = figuraTemp.getPosY();
+
+	int i = 0;
+	int j = 0;
+
+	while (i < figuraTemp.getAlcada() && esPotMoure)
 	{
-		for (int j = 0; j < 4 && esPotMoure; j++)
+		while (j < figuraTemp.getAlcada() && esPotMoure)
 		{
-			if (((posXBase + j >= 0) && (posXBase + j <= 3)) && ((posYBase + i >= 0) && (posYBase + i <= 3)))
-				if ((m_tauler[posXBase + i][posYBase + j] != COLOR_NEGRE) && (figura.getColorFigura(j, i) != COLOR_NEGRE))
+			if (figuraTemp.getColorFigura(i, j) != COLOR_NEGRE)
+			{
+				if (m_tauler[posXTemp + i][posYTemp + j] != COLOR_NEGRE || posYTemp + j < 0 || posYTemp + j >= MAX_FILA)
+				{
 					esPotMoure = false;
-
-			if ((((posXBase + j < 0) || (posXBase + j > 3)) || ((posYBase + i < 0) || (posYBase + i > 3))) && (figura.getColorFigura(j, i) != COLOR_NEGRE)) //NO HACE FALTA ESTA COMPROBACIÓN YA QUE NO REALIZA MOVIMIENTOS LATERALES, PERO LA DEJO POR SI ACASO
-				esPotMoure = false;
-		} //ATENCIÓN: PUEDE QUE figura.getColorFigura(j, i) tenga que cambiar los parámetros al revés según las consideraciones sobre las coordenadas
+				}
+			}
+			j++;
+		}
+		i++;
+		j = 0;
 	}
 
-	if (esPotMoure)
-		return true;
-	else
-		return false;
+	return esPotMoure;
 }
 
-bool Tauler::girCorrecte(Figura figura, DireccioGir gir)
+bool Tauler::girCorrecte(Figura const figura, DireccioGir const gir) const
 {
-	figura.girar(gir);
-
-	int posXBase = figura.getPosX() - 1;
-	int posYBase = figura.getPosY() - 1;
 	bool esPotGirar = true;
 
+	Figura figuraTemp = figura;
 
-	for (int i = 0; i < 4 && esPotGirar; i++)
+	figuraTemp.girar(gir);
+
+	int posXBase = figuraTemp.getPosX();
+	int posYBase = figuraTemp.getPosY();
+
+	int i = 0;
+	int j = 0;
+
+	while (i < figuraTemp.getAlcada() && esPotGirar)
 	{
-		for (int j = 0; j < 4 && esPotGirar; j++)
+		while (j < figuraTemp.getAlcada() && esPotGirar)
 		{
-			if (((posXBase + i >= 0) && (posXBase + i <= 3)) && ((posYBase + j >= 0) && (posYBase + j <= 3)))
-				if ((m_tauler[posXBase + i][posYBase + j] != COLOR_NEGRE) && (figura.getColorFigura(i, j) != COLOR_NEGRE))
+			if (figuraTemp.getColorFigura(i, j) != COLOR_NEGRE)
+			{
+				if ((posYBase + j < 0 || posYBase + j >= MAX_FILA) || (posXBase + i < 0 || posXBase + i >= MAX_COL))
+				{
 					esPotGirar = false;
-
-			if ((((posXBase + i < 0) || (posXBase + i > 3)) || ((posYBase + j < 0) || (posYBase + j > 3))) && (figura.getColorFigura(i, j) != COLOR_NEGRE))
-				esPotGirar = false;
-		} //ATENCIÓN: PUEDE QUE figura.getColorFigura(j, i) tenga que cambiar los parámetros al revés según las consideraciones sobre las coordenadas
+				}
+				if ((posYBase + j >= 0 && posYBase + j < MAX_FILA) && (posXBase + i >= 0 && posXBase + i < MAX_COL))
+					if (m_tauler[posXBase + i][posYBase + j] != COLOR_NEGRE)
+						esPotGirar = false;
+			}
+			j++;
+		}
+		i++;
+		j = 0;
 	}
 
-	if (esPotGirar)
-		return true;
-	else
-		return false;
+	return esPotGirar;
 }
 
-void Tauler::colocaFigura(Figura figura)
+void Tauler::colocaFigura(Figura const figura)
 {
-	int posXBase = figura.getPosX(); //- 1;
-	int posYBase = figura.getPosY() - 2; //- 1;
-
-	for (int i = 0; i < MAX_ALCADA; i++)
+	int posXBase = figura.getPosX();
+	int posYBase = figura.getPosY();
+	for (int i = 0; i < figura.getAlcada(); i++)
 	{
-		for (int j = 0; j < MAX_ALCADA; j++)
+		for (int j = 0; j < figura.getAlcada(); j++)
 		{
-			if (figura.getColorFigura(i, j) != COLOR_NEGRE) //se comprueba si la celda de la figura a colocar está vacía o no, ya que no interesaría reemplazar todo el 4x4 donde se haya dicha figura por celdas vacías sobre el entorno del juego
+			if (figura.getColorFigura(i, j) != COLOR_NEGRE)
 				m_tauler[posXBase + i][posYBase + j] = figura.getColorFigura(i, j);
 		}
 	}
@@ -144,51 +137,70 @@ void Tauler::colocaFigura(Figura figura)
 
 int Tauler::esborraLinea()
 {
-	bool esborraLinea = false;
 	int lineasPerEsborrar = 0;
-	int recompte = 0;
-	for (int i = 0; i < 8 && !esborraLinea; i++) //Primero se comprueba si hay una línea entera de celdas llenas, para ello uso una variable (recompte) que por cada línea analizada se resetea a 0. Por cada bloque analizado que contenga color se le suma 1 y, como hay 8 bloques en total por cada línea, si llega a una suma completa de 8, entonces se guarda el índice de la línea para eliminar
-	{
-		recompte = 0;
-		for (int j = 0; j < 8 && !esborraLinea; j++)
-		{
-			if (m_tauler[i][j] != COLOR_NEGRE)
-				recompte++;
-			if (recompte == 8)
-			{
-				lineasPerEsborrar++;
-				for (int k = 0; k < 8; k++) //Se eliminan todos los bloques de color de una fila entera (lineaPerEsborrar)
-				{
-					m_tauler[i][k] = COLOR_NEGRE;
-				}
 
-				for (int k = i; k >= 1; k--) //Se copian los bloques de arriba a abajo, empezando por abajo, justo a partir de la línea eliminada
-				{
-					for (int j = 0; j < 8; j++)
-					{
-						m_tauler[k][j] = m_tauler[k - 1][j];
-					}
-				}
+	for (int i = 0; i < 8; i++)
+	{
+		bool filaCompleta = true;
+
+		for (int j = 0; j < 8; j++)
+		{
+			if (m_tauler[i][j] == COLOR_NEGRE)
+			{
+				filaCompleta = false;
+				break;
 			}
 		}
 
-		/*
-			if (esborraLinea)
-			{
-				for (int i = 0; i < 8; i++) //Se eliminan todos los bloques de color de una fila entera (lineaPerEsborrar)
-				{
-					m_tauler[lineaPerEsborrar][i] == COLOR_NEGRE;
-				}
+		if (filaCompleta)
+		{
+			lineasPerEsborrar++;
 
-				for (int i = lineaPerEsborrar; i >= 1; i--) //Se copian los bloques de arriba a abajo, empezando por abajo, justo a partir de la línea eliminada
+			for (int k = 0; k < 8; k++)
+			{
+				m_tauler[i][k] = COLOR_NEGRE;
+			}
+
+			for (int k = i; k > 0; k--)
+			{
+				for (int j = 0; j < 8; j++)
 				{
-					for (int j = 0; j < 8; j++)
-					{
-						m_tauler[i][j] == m_tauler[i - 1][j];
-					}
+					m_tauler[k][j] = m_tauler[k - 1][j];
 				}
 			}
-		*/
+
+			for (int j = 0; j < 8; j++)
+			{
+				m_tauler[0][j] = COLOR_NEGRE;
+			}
+		}
 	}
+
+	bool ultimaFilaLlena = true;
+	for (int j = 0; j < 8; j++)
+	{
+		if (m_tauler[7][j] == COLOR_NEGRE)
+		{
+			ultimaFilaLlena = false;
+			break;
+		}
+	}
+
+	if (ultimaFilaLlena)
+	{
+		for (int i = 6; i >= 0; i--)
+		{
+			for (int j = 0; j < 8; j++)
+			{
+				m_tauler[i + 1][j] = m_tauler[i][j];
+			}
+		}
+
+		for (int j = 0; j < 8; j++)
+		{
+			m_tauler[0][j] = COLOR_NEGRE;
+		}
+	}
+
 	return lineasPerEsborrar;
 }

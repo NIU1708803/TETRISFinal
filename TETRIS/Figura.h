@@ -51,25 +51,21 @@ public:
     Figura();
 
     void inicialitzaFigura(TipusFigura tipus, int fila, int columna, Gir posicio);
-    void moureCostat(bool delta);
-    void baixar() { posX++; }
-    void girar(DireccioGir direccio);
-    TipusFigura getForma() { return Forma; }
+    void moureCostat(bool const delta);
+    void baixar() { m_posX++; }
+    void girar(DireccioGir const direccio);
 
-
-    void setForma(TipusFigura Figura, Gir posicio);//
-    void setX(int x) { posX = x; }
-    void setY(int y) { posY = y; }
-    void setGir(Gir p) { posicio = p; }
-    int getPosX() { return posX; }
-    int getPosY() { return posY; }
-    ColorFigura getColorFigura(int j, int i) { return figura[j][i]; }
+    int getPosX() const { return m_posX; }
+    int getPosY() const { return m_posY; }
+    ColorFigura getColorFigura(int j, int i) const { return m_figura[j][i]; }
+    int getAlcada() const { return m_alcada; }
 private:
-    TipusFigura Forma;
-    int posX; //POS FIGURA
-    int posY;
-    Gir posicio;
-    ColorFigura figura[MAX_ALCADA][MAX_ALCADA];
+    TipusFigura m_forma;
+    int m_posX;
+    int m_posY;
+    Gir m_posicio;
+    ColorFigura m_figura[MAX_ALCADA][MAX_ALCADA];
+    int m_alcada;
 };
 
 #endif
